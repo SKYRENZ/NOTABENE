@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using NotesTaking.MVVM.ViewModel;
 
 namespace NotesTaking
 {
@@ -17,13 +18,14 @@ namespace NotesTaking
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DatabaseManager databaseManager;
         private SolidColorBrush? originalFill, originalStroke, originalFillMinimize, originalStrokeMinimize;
-        private string connectionString = "server=localhost;user=root;database=notetaking_test;port=3306";
+
         public MainWindow()
         {
 
             InitializeComponent();
-
+            databaseManager = new DatabaseManager();
             //Revert Color of Close Button
             originalFill = btnClose.Fill as SolidColorBrush;
             originalStroke = btnClose.Stroke as SolidColorBrush;
@@ -36,15 +38,18 @@ namespace NotesTaking
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
 
         private void btnClose_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Close();
+           Application.Current.Shutdown();
         }
 
-        
+
         private void btnClose_MouseEnter(object sender, MouseEventArgs e)
         {
             //Changes the color of close button when hovered
@@ -62,15 +67,11 @@ namespace NotesTaking
 
         }
 
-        
+
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
         {
-            //Shows Dashboard
-            // Dashboard mainDashboard = new Dashboard();
-            //this.Visibility = Visibility.Hidden;
-            // mainDashboard.Show();
-            string username = txtUsername.Text.Trim(); // Get the username from the TextBox
-            string password = txtPassword.Password.Trim(); // Get the password from the PasswordBox
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Password.Trim();
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -78,46 +79,27 @@ namespace NotesTaking
                 return;
             }
 
-            try
+            if (databaseManager.ValidateUser(username, password))
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string query = "SELECT COUNT(*) FROM account WHERE AccountUser = @username AND AccountPass = @password";
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@password", password);
-
-                    int count = Convert.ToInt32(command.ExecuteScalar());
-
-                    if (count > 0)
-                    {
-                        // Login successful, show dashboard
-                        Dashboard mainDashboard = new Dashboard();
-                        this.Visibility = Visibility.Hidden;
-                        mainDashboard.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid username or password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
+                UserSession.LoggedInUsername = username;
+                Dashboard mainDashboard = new Dashboard();
+                this.Visibility = Visibility.Hidden;
+                mainDashboard.Show();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-    
 
 
-
-        private void btnCreateAcc(object sender, MouseButtonEventArgs e)
+        private void CreateAcc_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
+            MVVM.View.CreateAccPopUp createAccPopUp = new MVVM.View.CreateAccPopUp();
+            createAccPopUp.Owner = this;
+            createAccPopUp.ShowDialog();
         }
-        
+
         private void btnMinimize_MouseEnter(object sender, MouseEventArgs e)
         {
             //Changes the color of minimize button when hovered

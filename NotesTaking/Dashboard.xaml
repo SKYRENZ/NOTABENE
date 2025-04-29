@@ -9,7 +9,6 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="Transparent"
-        Topmost="True"
         WindowStyle="None"
         MouseLeftButtonDown="Dashboard_MouseLeftButtonDown" 
         AllowsTransparency="True"
@@ -19,15 +18,17 @@
     <Border CornerRadius="24" Background="#28282b">
         <Grid >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="179"/>
+                <ColumnDefinition Width="821"/>
             </Grid.ColumnDefinitions>
 
             <!--Sidebar menu-->
-            <Border CornerRadius="24" Background="#343434"  BorderThickness="5" Margin="20,51,0,20">
+            <Border CornerRadius="24" Background="#343434" Margin="20,56,10,20">
                 <Border.BitmapEffect>
-                    <DropShadowBitmapEffect Color="Black" Direction="-40" ShadowDepth="10" Softness="100" Opacity=".45" />
+                    <DropShadowBitmapEffect Color="Black" Direction="-40" ShadowDepth="15" Softness="100" Opacity=".45" />
+
                 </Border.BitmapEffect>
+                
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="150"/>
@@ -41,38 +42,65 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <!--Notes Button-->
-                    <Button x:Name="btnNotes"  
-                            HorizontalAlignment="Center" 
-                            Grid.Row="1" 
-                            VerticalAlignment="Center" 
-                            Height="50" Width="120"
-                            Background="Transparent"
-                            FontSize="10" 
-                            FontWeight="Bold"
-                            BorderThickness="2.5"
-                            BorderBrush="#008E70">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="15"/>
+                    <Button x:Name="btnNotes" 
+        Grid.Row="1" 
+        VerticalAlignment="Center" 
+        Height="50"
+        Background="#28282B"
+        FontSize="10" 
+        FontWeight="Bold"
+        Click="btnNotes_Click"
+        BorderThickness="0" Margin="14,0,15,0">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <!-- Set initial background color to black -->
+                                <Setter Property="Background" Value="#28282B"/>
+                                <Setter Property="BorderBrush" Value="Gray"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="FontSize" Value="10"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <!-- Set Opacity to 1 to ensure the background remains opaque -->
+                                <Setter Property="Opacity" Value="1"/>
+                                <Style.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="15"/>
+                                    </Style>
+                                </Style.Resources>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#3B3B3D"/>
+                                        <Setter Property="BorderBrush" Value="DarkGray"/>
+                                    </Trigger>
+                                    <!-- New trigger to change background color when pressed -->
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="LightBlue"/>
+                                        <Setter Property="BorderBrush" Value="DarkBlue"/>
+                                    </Trigger>
+                                    <!-- New trigger to retain black background when not pressed -->
+                                    <Trigger Property="IsPressed" Value="False">
+                                        <Setter Property="Background" Value="#28282B"/>
+                                    </Trigger>
+                                </Style.Triggers>
                             </Style>
-                        </Button.Resources>
-                        <DockPanel VerticalAlignment="Center">
-                            <Label Foreground="#008E70" Content="Notes" FontFamily="Segoe" FontSize="15" DockPanel.Dock="Right" Width="55"/>
+                        </Button.Style>
+                        <DockPanel VerticalAlignment="Top">
+                            <Label Foreground="#008E70" Content="Notes" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe" FontSize="15" DockPanel.Dock="Right" Width="70" Height="43" Background="Transparent"/>
+                            <Image Height="30" Source="Images\Notes.png" Stretch="Fill" Width="30" Margin="10,0,0,0"/>
                         </DockPanel>
                     </Button>
 
-                    <Image Margin="7,14,7,10" Source="C:\Users\Chewy\Documents\GitHub\NotesTaking\NotesTaking\Images\notabene.png" Stretch="Fill"/>
+
+                    <Image Margin="28,32,28,32" Source="Images\notabenelogocircle.png" Stretch="Fill"/>
                     <!--Archive Button-->
-                    <Button x:Name="btnArchive"  
-                        HorizontalAlignment="Center" 
+                    <Button x:Name="btnArchive" 
                         Grid.Row="3" 
                         VerticalAlignment="Center" 
-                        Height="50" Width="120"
-                        Background="Transparent"
+                        Height="50"
+                        Background="#28282b"
                         FontSize="10" 
                         FontWeight="Bold"
-                        BorderThickness="2.5"
-                        BorderBrush="#008E70">
+                        BorderThickness="0"
+                        Click="btnArchive_Click" Margin="12,0,12,0">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -80,54 +108,83 @@
                         </Button.Resources>
                         <DockPanel VerticalAlignment="Center">
                             <Label Foreground="#008E70" Content="Archive" FontFamily="Segoe" FontSize="15" DockPanel.Dock="Right" Width="66"/>
+                            <Image Source="Images\Archive.png" Stretch="Fill" Margin="10,0,5,0" Height="25" Width="22"/>
                         </DockPanel>
                     </Button>
-                    
+
                     <!--Reminder Button-->
-                    <Button x:Name="btnReminders"  
-                        HorizontalAlignment="Center" 
-                        Grid.Row="5" 
-                        VerticalAlignment="Center" 
-                        Height="50" Width="120"
-                        Background="Transparent"
+                    <Button x:Name="btnReminders" 
+                        Grid.Row="5"
+                        Background="#28282B"
                         FontSize="10" 
                         FontWeight="Bold"
-                        BorderThickness="2.5"
-                        BorderBrush="#008E70">
+                        BorderThickness="0"
+                        Click="btnReminders_Click" Margin="12,10,12,10">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </Button.Resources>
                         <DockPanel VerticalAlignment="Center">
-                            <Label Foreground="#008E70" Content="Reminders" FontFamily="Segoe" FontSize="15" DockPanel.Dock="Right" Width="84"/>
+                            <Label Foreground="#008E70" Content="Reminders" FontFamily="Segoe" FontSize="14" DockPanel.Dock="Right" Width="80" Height="26"/>
+                            <Image Source="Images\Reminder.png" Height="30" Width="24" Margin="2"/>
                         </DockPanel>
                     </Button>
-                    <Button x:Name="btnReminders_Copy"  
-                        HorizontalAlignment="Center" 
+                    <Button x:Name="btnTrash" 
                         Grid.Row="7" 
                         VerticalAlignment="Center" 
-                        Height="50" Width="120"
-                        Background="Transparent"
+                        Height="50"
+                        Background="#28282B"
                         FontSize="10" 
                         FontWeight="Bold"
-                        BorderThickness="2.5"
-                        BorderBrush="#008E70">
+                        BorderThickness="0"
+                        BorderBrush="#008E70" Click="btnTrash_Click" Margin="12,0,12,0">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </Button.Resources>
                         <DockPanel VerticalAlignment="Center">
-                            <Label Foreground="#008E70" Content="Trash" FontFamily="Segoe" FontSize="15" DockPanel.Dock="Right" Width="49"/>
+                            <Image Source="Images\trash.png" Height="30" Width="24" Margin="2"/>
+                            <Label Foreground="#008E70" Content="Trash" FontFamily="Segoe" FontSize="15" DockPanel.Dock="Right" Width="50" Height="30"/>
+                     
                         </DockPanel>
                     </Button>
-
+                    <!-- Log Out Button -->
+                    <Button Grid.Row="8" Height="50" Background="#28282b" FontSize="10" FontWeight="Bold" BorderThickness="0" Click="btnLogOut_Click" Margin="12,25,12,24">
+                        <!-- Add Tooltip -->
+                        <Button.ToolTip>
+                            <ToolTip Content="Log Out"/>
+                        </Button.ToolTip>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                        <DockPanel VerticalAlignment="Center">
+                            <Image Source="Images\logogoout.png" Height="26" Width="36"></Image>
+                            <Label Foreground="#008E70" Content="Log Out" FontFamily="Segoe" FontSize="15" DockPanel.Dock="Right" Width="70"/>
+                        </DockPanel>
+                    </Button>
                 </Grid>
             </Border>
-            <Ellipse x:Name="btnClose" Grid.Column="1" Margin="0,10,10,640" Fill="#FF343A" StrokeThickness="4" Stroke="#C7282D" HorizontalAlignment="Right" Width="30" MouseLeftButtonDown="btnClose_MouseLeftButtonDown" MouseEnter="btnClose_MouseEnter" MouseLeave="btnClose_MouseLeave"/>
-            <Ellipse x:Name="btnMinimize" Grid.Column="1" Margin="0,10,45,0" Fill="#FFBE45" StrokeThickness="4" Stroke="#C79436" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" MouseLeftButtonDown="btnMinimize_MouseLeftButtonDown" MouseEnter="btnMinimize_MouseEnter" MouseLeave="btnMinimize_MouseLeave"/>
+            <Grid Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,640" MouseLeftButtonDown="btnClose_MouseLeftButtonDown" MouseEnter="btnClose_MouseEnter" MouseLeave="btnClose_MouseLeave">
+                <Ellipse x:Name="btnClose" Fill="#FF343A" StrokeThickness="4" Stroke="#C7282D" Width="30" Height="30"/>
+                <Image Source="C:\Users\chris\source\repos\NotesTaking\NotesTaking\Images\icons8-close-24.png" Width="20" Height="20" Stretch="Uniform" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
 
+            <Grid Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,45,0" MouseLeftButtonDown="btnMinimize_MouseLeftButtonDown" MouseEnter="btnMinimize_MouseEnter" MouseLeave="btnMinimize_MouseLeave">
+                <Ellipse x:Name="btnMinimize" Fill="#FFBE45" StrokeThickness="4" Stroke="#C79436" Width="30" Height="30"/>
+                <Image Source="C:\Users\chris\source\repos\NotesTaking\NotesTaking\Images\icons8-minimize-24.png" Width="20" Height="20" Stretch="Uniform" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+
+
+
+            <!--Main Content menu-->
+            <!-- ControlArea -->
+            <ContentControl x:Name="contentArea" Grid.Column="1" Margin="10,60,20,20">
+
+            </ContentControl>
         </Grid>
 
     </Border>

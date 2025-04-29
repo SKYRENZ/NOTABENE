@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="NotesTaking.MVVM.View.RemindersControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="400">
+    <Grid Background="#28282b" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Reminders" FontSize="24" FontWeight="Bold" Foreground="WhiteSmoke"/>
+        </StackPanel>
+
+        <!-- Message in the Middle -->
+        <TextBlock Grid.Row="1" Text="Sorry not available" Foreground="WhiteSmoke" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <!-- Reminder List -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10,0">
+            <StackPanel x:Name="ReminderList">
+                <!-- Example reminder item -->
+                <Border Background="#3B3B3D" CornerRadius="10" Padding="10" Margin="0,5">
+                    <TextBlock Text="Note...." Foreground="WhiteSmoke"/>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Input Area -->
+        <StackPanel Grid.Row="2" Orientation="Vertical" Margin="10">
+            <TextBox x:Name="NewReminderTextBox" Background="#3B3B3D" Foreground="WhiteSmoke"
+                     TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" 
+                     BorderThickness="0" Padding="10" Height="100" Margin="0,0,0,5"/>
+            <Button Content="Add Reminder" Background="#008E70" Foreground="White" 
+                    BorderBrush="#008E70" Padding="10" Click="AddReminder_Click"/>
+            <TextBlock TextWrapping="Wrap" />
+        </StackPanel>
+    </Grid>
+</UserControl>

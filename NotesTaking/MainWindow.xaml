@@ -31,9 +31,17 @@
                     <DropShadowBitmapEffect Color="Black" Direction="-40" ShadowDepth="15" Softness="100" Opacity=".45" />
                 </Rectangle.BitmapEffect>
             </Rectangle>
-            <Ellipse x:Name="btnClose" Grid.Column="2" Margin="0,0,10,0" Fill="#FF343A" StrokeThickness="4" Stroke="#C7282D" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" Width="30" MouseLeftButtonDown="btnClose_MouseLeftButtonDown" MouseEnter="btnClose_MouseEnter" MouseLeave="btnClose_MouseLeave"/>
-            <Ellipse x:Name="btnMinimize" Grid.Column="2" Margin="0,0,45,0" Fill="#FFBE45" StrokeThickness="4" Stroke="#C79436" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" Width="30" MouseLeftButtonDown="btnMinimize_MouseLeftButtonDown" MouseEnter="btnMinimize_MouseEnter" MouseLeave="btnMinimize_MouseLeave"/>
-            <Image Margin="55,0,55,251" Source="C:\Users\Chewy\Documents\GitHub\NotesTaking\NotesTaking\Images\notabene.png" Grid.Column="1" Grid.Row="1"/>
+            <Grid Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" MouseLeftButtonDown="btnClose_MouseLeftButtonDown" MouseEnter="btnClose_MouseEnter" MouseLeave="btnClose_MouseLeave">
+                <Ellipse x:Name="btnClose" Margin="0,0,10,0" Fill="#FF343A" StrokeThickness="4" Stroke="#C7282D" Height="30" Width="30"/>
+                <Image Source="Images\icons8-close-24.png" Width="20" Height="20" Stretch="Uniform" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </Grid>
+
+            <Grid Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" MouseLeftButtonDown="btnMinimize_MouseLeftButtonDown" MouseEnter="btnMinimize_MouseEnter" MouseLeave="btnMinimize_MouseLeave">
+                <Ellipse x:Name="btnMinimize" Margin="0,0,45,0" Fill="#FFBE45" StrokeThickness="4" Stroke="#C79436" Height="30" Width="30"/>
+                <Image Source="Images\icons8-minimize-24.png" Width="20" Height="20" Stretch="Uniform" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </Grid>
+
+            <Image Margin="110,37,110,328" Source="Images\LogInLogo.png" Grid.Column="1" Grid.Row="1"/>
             <Button x:Name="btnSignIn" 
                     Background="Transparent"
                     Grid.Column="1" 
@@ -43,7 +51,7 @@
                     FontWeight="Bold"
                     BorderThickness="2.5"
                     BorderBrush="#008E70"
-                    Padding="1" Click="btnSignIn_Click">    
+                    Padding="1" Click="btnSignIn_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="17"/>
@@ -102,11 +110,16 @@
                    FontFamily="Segoe"
                    Foreground="WhiteSmoke"
                    Opacity=".4 "
-                   MouseLeftButtonDown="btnCreateAcc" Cursor="Hand"/>
-
-
-
-
+/>
+            <Label x:Name="CreateAcc" 
+                   Grid.Column="1" 
+                   Content="Don't have an account?" 
+                   Margin="303,556,10,0" Grid.Row="1" 
+                   VerticalAlignment="Top"
+                   FontFamily="Segoe"
+                   Foreground="WhiteSmoke"
+                   Opacity=".4"
+                   FontWeight="SemiBold" Cursor="Hand" MouseLeftButtonDown="CreateAcc_MouseLeftButtonDown"/>
         </Grid>
     </Border>
 

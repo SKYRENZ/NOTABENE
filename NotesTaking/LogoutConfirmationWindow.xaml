@@ -1,0 +1,59 @@
+﻿<Window x:Class="NotesTaking.LogoutConfirmationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Log Out" Height="200" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Border Background="#28282b"
+            BorderBrush="#008E70"
+            BorderThickness="2"
+            CornerRadius="20">
+        <Border CornerRadius="20" Background="#28282b">
+            <Grid>
+                <!-- Apply CornerRadius to the inner Border -->
+                <TextBlock Text="Are you sure you want to log out?" 
+                           Foreground="White" 
+                           FontSize="16"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="20,20,20,60"/>
+                <!-- Added margin for buttons -->
+
+                <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Bottom" 
+                            Margin="0,0,0,20">
+                    <Button Content="Yes" 
+                            Background="#008E70" 
+                            Foreground="White" 
+                            FontSize="14" 
+                            FontWeight="Bold"
+                            Width="100"
+                            Height="40"
+                            Margin="10"
+                            Click="Yes_Click">
+                        <Button.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.5"/>
+                        </Button.Effect>
+                    </Button>
+                    <Button Content="No" 
+                            Background="#C7282D" 
+                            Foreground="White" 
+                            FontSize="14" 
+                            FontWeight="Bold"
+                            Width="100"
+                            Height="40"
+                            Margin="10"
+                            Click="No_Click">
+                        <Button.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.5"/>
+                        </Button.Effect>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Border>
+</Window>

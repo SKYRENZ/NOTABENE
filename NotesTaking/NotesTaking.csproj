@@ -9,15 +9,144 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Archive.png" />
+    <None Remove="Images\Bene.png" />
+    <None Remove="Images\close.png" />
+    <None Remove="Images\google.png" />
+    <None Remove="Images\GreenBlack.png" />
+    <None Remove="Images\GreenOutline.png" />
+    <None Remove="Images\GreenWhite.png" />
+    <None Remove="Images\icons8-add-reminder-48.png" />
+    <None Remove="Images\icons8-archive-24.png" />
+    <None Remove="Images\icons8-archive-48.png" />
+    <None Remove="Images\icons8-cancel-24.png" />
+    <None Remove="Images\icons8-cancel-48.png" />
+    <None Remove="Images\icons8-close-24.png" />
+    <None Remove="Images\icons8-delete-24.png" />
+    <None Remove="Images\icons8-logout-50.png" />
+    <None Remove="Images\icons8-making-notes-32 %281%29.png" />
+    <None Remove="Images\icons8-minimize-24.png" />
+    <None Remove="Images\IconSave.png" />
+    <None Remove="Images\LogInLogo.png" />
+    <None Remove="Images\logogoout.png" />
+    <None Remove="Images\logouut.png" />
+    <None Remove="Images\MenuIcon.png" />
+    <None Remove="Images\MenuIcon1.png" />
+    <None Remove="Images\minimize %281%29.png" />
+    <None Remove="Images\Nota.png" />
+    <None Remove="Images\notabene.png" />
+    <None Remove="Images\notabenelogocircle.png" />
+    <None Remove="Images\notebenelogocircle.jpg" />
+    <None Remove="Images\Notes.png" />
+    <None Remove="Images\Reminder.png" />
+    <None Remove="Images\trash.png" />
+    <None Remove="Images\unarchive.png" />
+    <None Remove="Images\Word4.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Core\" />
-    <Folder Include="MVVM\Model\" />
-    <Folder Include="MVVM\ViewModel\" />
-    <Folder Include="MVVM\View\" />
     <Folder Include="Themes\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Archive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Bene.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\google.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\GreenBlack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\GreenOutline.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\GreenWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-add-reminder-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-archive-24.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-archive-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-cancel-24.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-cancel-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-close-24.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-delete-24.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-logout-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-making-notes-32 (1).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\IconSave.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\icons8-minimize-24.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\LogInLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\logogoout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\logouut.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\minimize (1).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Nota.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\notabene.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\notabenelogocircle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\notebenelogocircle.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Notes.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Reminder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\trash.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\unarchive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Word4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

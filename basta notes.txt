@@ -1,0 +1,18 @@
+/* This DatabaseManager class is responsible for managing interactions with the database in a WPF note-taking application. Here's a breakdown of its main functionalities:
+ConnectionString: The class holds a connection string to the MySQL database.
+ValidateUser: This method checks if a user with a given username and password exists in the database. It executes a SQL query to count the rows matching the username and password.
+InsertNote: Inserts a new note into the database with the provided account ID, note title, and note content.
+GetLoggedInAccountId: Retrieves the account ID of the logged-in user based on their username.
+LoadNotes: Loads all notes associated with a given account ID from the database.
+ArchiveNoteFromNotes: Archives a note by updating the IsArchived field in the notes table to 1.
+CreateNoteForLoggedInUser: Creates a new note for the logged-in user by first retrieving their account ID.
+UpdateNote: Updates an existing note in the notes table with new title and content.
+ArchiveNote: Archives a note by moving it from the notes table to the archive table.
+DeleteNoteFromNotes: Deletes a note from the notes table based on its ID.
+MoveNoteToTrash: Moves a note to the trash by inserting it into the trash table.
+DeleteNoteFromDatabase: Deletes a note from the notes table based on its ID.
+UnarchiveNote: Restores a note from the archive by moving it back to the notes table.
+LoadTrashedNotes: Loads all notes that have been moved to the trash for a given account ID.
+RestoreNoteFromTrash: Restores a note from the trash by moving it back to the notes table.
+DeleteNoteFromTrash: Permanently deletes a note from the trash.
+GetArchivedNotes: Retrieves archived notes for a given account ID from the archive table. */
